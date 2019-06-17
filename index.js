@@ -6,6 +6,7 @@ var cuotaDeAseo = 0;
 var valorDerechosDeGimnasio= 0;
 var genero = "";
 var edad = 0;
+var cantidadPersonas = 0;
 
 
 //capturar datos de entrada
@@ -16,11 +17,21 @@ tipoDeInmueble = prompt ("Digite el tipo de inmueble" +
 'Inmueble "Casa" o "Apartamento".');
 tipoDeInmueble = tipoDeInmueble.toUpperCase();
 
-genero = prompt ("Digite su genero"+ 
-'Genero: "Masculino" o  "Femenino".');
-genero = genero.toUpperCase();
 
-edad = prompt ("Digite" + " su edad")
+cantidadPersonas = prompt("digite la cantidad de personas "+
+"que viven en el inmueble");
+
+for(var i=0; i<cantidadPersonas; i++){
+    genero = prompt ("Digite su genero"+(i+1));
+    genero = genero.toUpperCase();
+
+    edad = prompt ("Digite su edad"+(i+1));
+
+valorDerechosDeGimnasio += calcularValorDerechosDeGimnasio(
+    genero, edad
+);
+
+}
 
 
 
@@ -35,9 +46,8 @@ valorDeAdministracion=
 cuotaDeAseo = calcularCuotaDeAseo(
     valorDeAdministracion
 );
-valorDerechosDeGimnasio = calcularValorDerechosDeGimnasio(
-    genero, edad
-);
+
+
     
 
 function calcularValorDeAdministracion(
